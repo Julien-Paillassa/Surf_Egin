@@ -5,3 +5,11 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/brands';
+
+body {
+  background-color: #6495ED;
+}
+
+.container-fluid {
+  background-color: #B2B2B2;
+}
