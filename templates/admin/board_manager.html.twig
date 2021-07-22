@@ -1,0 +1,53 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Panneau d'administration{% endblock %}
+
+{% block content %}
+
+    <div class="container col-12">
+        <a href="{{ path('admin_new_board') }}"><li class='d-flex align-items-center'><i class="fas fa-history"></i>+ Ajouter une planche</li></a>
+        <table class="table">
+            <thead class="thead-light">
+            <tr class="justify-content-between text-center">
+                <th>Nom</th>
+                <th>Marque</th>
+                <th>Taille</th>
+                <th>Volume</th>
+                <th>Mettre à jour</th>
+                <th>Supprimer</th>
+            </tr>
+            </thead>
+            <tbody class="justify-content-between text-center mx-auto">
+            {% for board in boards %}
+                <tr>
+                    <td class="align-middle">
+                        {% for picture in board.pictures %}
+                            {% if loop.index == 1 %}
+                                <img class="card-img-top" src="{{ picture.url }}" alt="Card image cap" style="width: 10rem;">
+                            {% endif %}
+                        {% endfor %}
+                        <p>{{ board.name }}</p>
+                    </td>
+                    <td class="align-middle">{{ board.brand.name }}</td>
+                    <td class="align-middle">{{ board.size }}</td>
+                    <td class="align-middle">{{ board.volume }}</td>
+                    <td class="align-middle">
+                        <a href=""> <button class="btn btn-primary btn-lg ">Edit</button></a>
+                    </td>
+                    <td class="align-middle">
+                        <a href=""> <button class="btn btn-primary btn-lg ">Delete</button></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="mx-auto my-5 text-center">
+        <a href="{{ path("home") }}"><button class="btn button-style col-3"> Retour sur la page d'accueil </button></a>
+    </div>
+
+{% endblock %}
