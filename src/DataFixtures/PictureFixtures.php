@@ -36,7 +36,7 @@ class PictureFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference('picture_3', $picture);
 
         $picture = new Picture();
-        $picture->setUrl('https://static.akewatu.net/image/cache/upscale_2/processed-dbedbec4bf43233d5e0e7e4299042e6924b17179.jpeg');
+        $picture->setUrl('https://static.akewatu.net/image/cache/upscale_2/processed-ad42a7d6358fee0e0b36950aebc6e0594de1a10c.jpeg');
         $picture->setBoard($this->getReference('board_0'));
         $manager->persist($picture);
         $this->addReference('picture_4', $picture);
@@ -54,7 +54,7 @@ class PictureFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference('picture_6', $picture);
 
         $picture = new Picture();
-        $picture->setUrl('https://static.akewatu.net/image/cache/upscale_2/354729513aac1e7038d5d5a859409291b25d112d.png');
+        $picture->setUrl('https://static.akewatu.net/image/cache/upscale_2/processed-195a7c481fdce19f8920b63c3c7f41c0fa9ddb01.jpeg');
         $picture->setBoard($this->getReference('board_3'));
         $manager->persist($picture);
         $this->addReference('picture_7', $picture);

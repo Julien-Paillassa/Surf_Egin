@@ -10,7 +10,7 @@
                 <div class="container-fluid list-catalogue">
                     <div class="grid row d-flex justify-content-center">
                         {% for board in boards %}
-                            <a href="" class="card col-md-4 col-lg-3 col-12">
+                            <a href="{{ path("board_show", {id: board.id}) }}" class="card col-md-4 col-lg-3 col-12">
                                 <div class="card-block">
                                     {% for picture in board.pictures %}
                                         {% if loop.index == 1 %}

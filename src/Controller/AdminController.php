@@ -68,4 +68,38 @@ class AdminController extends AbstractController
             "form" => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/edit/{id}", name="edit_board", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Board $board): Response
+    {
+        $form = $this->createForm(BoardType::class, $board);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('admin_board', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('admin/board_edit.html.twig', [
+            'board' => $board,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="board_delete", methods={"POST"})
+     */
+    public function delete(Request $request, Board $board): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$board->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($board);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('admin_board', [], Response::HTTP_SEE_OTHER);
+    }
 }

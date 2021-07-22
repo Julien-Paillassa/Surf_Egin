@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ board.name }}{% endblock %}
+
+{% block body %}
+<div class="container show-product col-12 pt-2">
+    <div class="row">
+        <div class="card col-6">
+            <div class="container-image">
+{#                <a href="{{ path("user_handle_favorite", {product: product.id}) }}"><i class="far fa-heart"></i></a>#}
+                {% for picture in board.pictures %}
+                    {% if loop.index == 1 %}
+                        <img class="card-img-top" src="{{ picture.url }}" alt="Card image cap">
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="card-body">
+                <p class="font-weight-bold">Marque :</p>
+                <p>{{ board.brand.name }}</p>
+                <p class="font-weight-bold">Description :</p>
+                <p>{{ board.description }}</p>
+                <p class="font-weight-bold">Caractéristiques :</p>
+                <ul>
+                    <li>> {{ board.size }}</li>
+                    <li>> {{ board.volume }}</li>
+                    <li>> {{ board.category.name }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-5">
+            <h1> {{ board.name }} </h1>
+{#            <div class="row">#}
+{#                {% if product.countRatings != 0 %}#}
+{#                    <div class="col-5">#}
+{#                        <i class="fas fa-star"></i><strong>{{ product.averageRatings }}</strong>#}
+{#                        <p class="grey-text d-inline">({{ product.countRatings }})</p>#}
+{#                    </div>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#            <div class="row">#}
+{#                <div class="col-12">#}
+{#                    <a href="{{ path("item_product_add", {id: product.id}) }}" class="btn button-style col-4">Ajouter#}
+{#                        au panier</a>#}
+{#                    <a href="{{ path("user_handle_alert", {product: product.id}) }}"><i class="far fa-bell"></i></a>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="row mt-3">#}
+{#                <div class="col-12">#}
+{#                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ currentUrl }}" onclick="window.open(this.href, 'facebookwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;">#}
+{#                        <button class="btn btn-primary">#}
+{#                            <i class="fab fa-facebook"></i>#}
+{#                        </button>#}
+{#                    </a>#}
+{#                    <a href="http://twitter.com/intent/tweet?text={{ currentUrl }}" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;">#}
+{#                        <button class="btn btn-info">#}
+{#                            <i class="fab fa-twitter"></i>#}
+{#                        </button>#}
+{#                    </a>#}
+{#                    <button class="btn btn-success" data-href="https://web.whatsapp.com/send?text={{ currentUrl }}" onclick="window.open(this.dataset.href, '_blank' );return false;">#}
+{#                        <i class="fab fa-whatsapp"></i>#}
+{#                    </button>#}
+{#                    <button class="btn btn-danger" onclick="var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e);return false;">#}
+{#                        <i class="fab fa-pinterest"></i>#}
+{#                    </button>#}
+{#                </div>#}
+{#            </div>#}
+        </div>
+    </div>
+{% endblock %}
