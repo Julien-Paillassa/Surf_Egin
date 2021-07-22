@@ -7,7 +7,7 @@
     <div class="row">
         <div class="card col-6">
             <div class="container-image">
-{#                <a href="{{ path("user_handle_favorite", {product: product.id}) }}"><i class="far fa-heart"></i></a>#}
+                <a href="{{ path("user_handle_favorite", {id: board.id}) }}"><i class="far fa-heart"></i></a>
                 {% for picture in board.pictures %}
                     {% if loop.index == 1 %}
                         <img class="card-img-top" src="{{ picture.url }}" alt="Card image cap">
