@@ -19,22 +19,18 @@ class BoardRepository extends ServiceEntityRepository
         parent::__construct($registry, Board::class);
     }
 
-    // /**
-    //  * @return Board[] Returns an array of Board objects
-    //  */
-    /*
-    public function findByExampleField($value)
+
+    public function searchBoard($criteria)
     {
         return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
+            ->where('b.level = :level')
+            ->setParameter('level', $criteria['Niveau'])
+            ->andWhere('b.volume = :volume')
+            ->setParameter('volume', $criteria['Poids'])
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Board

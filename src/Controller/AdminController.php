@@ -5,10 +5,13 @@ namespace App\Controller;
 use App\Entity\Board;
 use App\Repository\BoardRepository;
 use App\Repository\SpotRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\BoardType;
 
@@ -54,12 +57,27 @@ class AdminController extends AbstractController
     /**
      * @Route("/new", name="new_board")
      */
-    public function newBoard(Request $request, EntityManagerInterface $entityManager) : Response
+    public function newBoard(Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer, UserRepository $userRepository) : Response
     {
+        $users = $userRepository->findAll();
         $board = new Board();
         $form = $this->createForm(BoardType::class, $board);
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
+            $usersEmail = [];
+            foreach ($users as $user) {
+                $usersEmail[] = $user->getEmail();
+            }
+            foreach ($usersEmail as $userEmail) {
+                $email = (new Email())
+                    ->from($this->getParameter('mailer_from'))
+                    ->to($userEmail)
+                    ->subject('Nouvelle planche')
+                    ->html($this->renderView('board/newBoardEmail.html.twig', [
+                        'board' => $board
+                    ]));
+                $mailer->send($email);
+            }
             $entityManager->persist($board);
             $entityManager->flush();
             return $this->redirectToRoute('admin_board');

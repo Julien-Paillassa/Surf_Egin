@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planche idéale{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h1>Trouver votre planche iédale</h1>
+                {{ form(form) }}
+            </div>
+        </div>
+
+        {% if app.request.method == 'POST' %}
+        <div class="row">
+            <div class="col-10">
+                <h1>Résultat</h1>
+                {% if boards |length == 0 %}
+                    <h2>Aucun résultat trouvé</h2>
+                {% else %}
+                {% for board in boards %}
+                    <a href="{{ path("board_show", {id: board.id}) }}" class="card col-md-4 col-lg-3 col-12">
+                        <div class="card-block">
+                            {% for picture in board.pictures %}
+                                {% if loop.index == 1 %}
+                                    <img class="card-img-top" src="{{ picture.url }}" alt="Card image cap">
+                                {% endif %}
+                            {% endfor %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ board.name }}</h5>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock body %}

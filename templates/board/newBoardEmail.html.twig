@@ -1,0 +1,11 @@
+{% extends 'layoutEmail.html.twig' %}
+
+{% block title %}Nouvelle planche{% endblock %}
+
+{% block content %}
+
+    <h1>{{ board.name }} à été ajouter à notre collection</h1>
+    <p>Bonjour ! Une nouvelle planche, '{{ board.name }}', vient tout juste d'être ajoutée a notre liste de planche</p>
+    <p>{{ board.description }}</p>
+
+{% endblock %}
