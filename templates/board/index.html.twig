@@ -1,20 +1,36 @@
 {% extends 'base.html.twig' %}
+{#{% form_theme form 'bootstrap_4_layout.html.twig' %}#}
 
-{% block title %}Hello BoardController!{% endblock %}
+{% block title %}Catalogue planches{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container-fluid catalogue">
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div class="container-fluid list-catalogue">
+                    <div class="grid row d-flex justify-content-center">
+                        {% for board in boards %}
+                            <a href="" class="card col-md-4 col-lg-3 col-12">
+                                <div class="card-block">
+                                    {% for picture in board.pictures %}
+                                        {% if loop.index == 1 %}
+                                            <img class="card-img-top" src="{{ picture.url }}" alt="Card image cap">
+                                        {% endif %}
+                                    {% endfor %}
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ board.name }}</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mx-auto my-5 text-center">
+            <a href="{{ path("home") }}"><button class="btn button-style col-3"> Retour sur la page d'accueil </button></a>
+        </div>
+    </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/julien/CheckPoint4/Surf_Egin/src/Controller/BoardController.php'|file_link(0) }}">src/Controller/BoardController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/julien/CheckPoint4/Surf_Egin/templates/board/index.html.twig'|file_link(0) }}">templates/board/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}

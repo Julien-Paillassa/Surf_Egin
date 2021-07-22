@@ -14,28 +14,28 @@ class SpotFixtures extends Fixture implements DependentFixtureInterface
         $spot = new Spot();
         $spot->setName('Plage Nord');
         $spot->setCity('Le porge');
-        $spot->setSpotType($this->setReference('spotType_0'));
+        $spot->setSpotType($this->getReference('spotType_0'));
         $manager->persist($spot);
         $this->addReference('spot_0', $spot);
 
         $spot = new Spot();
         $spot->setName('Plage centrale');
         $spot->setCity('Lacanau');
-        $spot->setSpotType($this->setReference('spotType_1'));
+        $spot->setSpotType($this->getReference('spotType_1'));
         $manager->persist($spot);
         $this->addReference('spot_1', $spot);
 
         $spot = new Spot();
         $spot->setName('Les culs nus');
         $spot->setCity('Hossegor');
-        $spot->setSpotType($this->setReference('spotType_0'));
+        $spot->setSpotType($this->getReference('spotType_0'));
         $manager->persist($spot);
         $this->addReference('spot_2', $spot);
 
         $spot = new Spot();
         $spot->setName('Le VVF');
         $spot->setCity('Anglet');
-        $spot->setSpotType($this->setReference('spotType_2'));
+        $spot->setSpotType($this->getReference('spotType_2'));
         $manager->persist($spot);
         $this->addReference('spot_3', $spot);
 
@@ -46,7 +46,6 @@ class SpotFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             SpotTypeFixtures::class,
-
         ];
     }
 }

@@ -24,7 +24,7 @@ class UserFixtures extends Fixture
         $contributor->setEmail('kelly.slater@gmail.com');
         $contributor->setNickName('boule de billard');
         $contributor->setCity('Cocoa Beach');
-        $contributor->setRole(['ROLE_CONTRIBUTOR']);
+        $contributor->setRoles(['ROLE_CONTRIBUTOR']);
         $contributor->setPassWord($this->passwordEncoder->encodePassword($contributor, 'kelly'));
         $manager->persist($contributor);
         $this->addReference('user_0', $contributor);
@@ -35,7 +35,7 @@ class UserFixtures extends Fixture
         $contributor->setEmail('mick.fanning@gmail.com');
         $contributor->setNickName('el autralien');
         $contributor->setCity('Coolangatta,');
-        $contributor->setRole(['ROLE_CONTRIBUTOR']);
+        $contributor->setRoles(['ROLE_CONTRIBUTOR']);
         $contributor->setPassWord($this->passwordEncoder->encodePassword($contributor, 'mick'));
         $manager->persist($contributor);
         $this->addReference('user_1', $contributor);
@@ -46,10 +46,10 @@ class UserFixtures extends Fixture
         $admin->setEmail('laird.hamilton@gmail.com');
         $admin->setNickName('le vieux');
         $admin->setCity('San Francisco');
-        $admin->setRole(['ROLE_ADMIN']);
+        $admin->setRoles(['ROLE_ADMIN']);
         $admin->setPassWord($this->passwordEncoder->encodePassword($admin, 'hamilton'));
         $manager->persist($admin);
-        $this->addReference('user_0', $admin);
+        $this->addReference('admin_0', $admin);
 
 
         $manager->flush();
