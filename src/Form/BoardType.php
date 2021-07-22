@@ -33,6 +33,9 @@ class BoardType extends AbstractType
                 'expanded' => false,
                 'multiple' => false
             ])
+//            ->add('pictures', PictureType::class, [
+//                'data_class' => null,
+//                ])
         ;
     }
 
@@ -42,4 +45,5 @@ class BoardType extends AbstractType
             'data_class' => Board::class,
         ]);
     }
+
 }

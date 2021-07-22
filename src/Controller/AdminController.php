@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Board;
 use App\Repository\BoardRepository;
+use App\Repository\PictureRepository;
 use App\Repository\SpotRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -63,7 +64,7 @@ class AdminController extends AbstractController
         $board = new Board();
         $form = $this->createForm(BoardType::class, $board);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $usersEmail = [];
             foreach ($users as $user) {
                 $usersEmail[] = $user->getEmail();

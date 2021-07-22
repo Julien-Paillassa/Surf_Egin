@@ -37,7 +37,11 @@
                     <label for="">Description</label>
                     {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                <div class="col-sm">
+                <div class="col-sm mb-3 ">
+                    <label for="">Image</label>
+                    {{ form_widget(form.pictures, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm my-5">
                     <button type="submit" class="btn button-style">Ajouter</button>
                 </div>
                 {{ form_end(form) }}

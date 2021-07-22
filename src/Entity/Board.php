@@ -50,9 +50,9 @@ class Board
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="board")
+     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="board", cascade={"persist"})
      */
-    private $pictures;
+    private Collection $pictures;
 
     /**
      * @ORM\ManyToOne(targetEntity=Brand::class, inversedBy="boards")
