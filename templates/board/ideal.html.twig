@@ -3,18 +3,18 @@
 {% block title %}Planche idéale{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <h1>Trouver votre planche iédale</h1>
+    <div class="container board-ideal col-12" style="height: 60rem">
+        <div class="row py-4">
+            <div class="col-4 mx-auto">
+                <h1 class="font-weight-bold font-italic">Trouver votre planche idéale</h1>
                 {{ form(form) }}
             </div>
         </div>
 
         {% if app.request.method == 'POST' %}
-        <div class="row">
-            <div class="col-10">
-                <h1>Résultat</h1>
+        <div class="row col-10 mx-auto">
+            <div class="col-12">
+                <h1 class="font-weight-bold font-italic">Résultat</h1>
                 {% if boards |length == 0 %}
                     <h2>Aucun résultat trouvé</h2>
                 {% else %}

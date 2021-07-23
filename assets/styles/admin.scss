@@ -25,3 +25,39 @@
     }
   }
 }
+
+.dash-board {
+  background-image: url("https://images-na.ssl-images-amazon.com/images/I/917S0GPtoHL._AC_SL1500_.jpg");
+  background-size: 1500px 800px;
+}
+
+.admin-menu {
+  background-color: lightblue;
+}
+
+.board-manager {
+  background-image: url("https://i.pinimg.com/originals/0f/d5/7e/0fd57e275f516951e460ab42d0872e33.jpg");
+  background-size: 1400px 1000px;
+  a, td, i {
+    color: white;
+    font-weight: bolder;
+  }
+}
+
+.spot-manager {
+  background-image: url("https://i.pinimg.com/originals/0f/d5/7e/0fd57e275f516951e460ab42d0872e33.jpg");
+  background-size: 1400px 1000px;
+  a, td, i {
+    color: white;
+    font-weight: bolder;
+  }
+}
+
+.new-board{
+  background-image: url("https://tahitilocasurf.com/wp-content/uploads/2019/08/blog-surfshoptahiti.jpg");
+  background-size: 1550px 1000px;
+  label{
+    color: white;
+    font-weight: bolder;
+  }
+}

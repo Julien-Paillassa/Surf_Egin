@@ -4,52 +4,51 @@
 {% block title %}Panneau d'administration{% endblock %}
 
 {% block content %}
-    <div class="row">
+    <div class="row new-board">
         <div class="col-sm justify-content-md-start border  border-dark rounded p-3">
             <div class="container col-sm mt-3 text-center ">
-                <h1> Ajouter une planche</h1>
-                {{ form_start(form) }}
-                <div class="col-sm mb-3 ">
-                    <label for="">Nom de la planche</label>
-                    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                <div class="col-6 mx-auto">
+                    <h1 class="text-white text-center pt-4 pb-2 font-weight-bold font-italic"><u> Ajouter une planche </u></h1>
+                    {{ form_start(form) }}
+                    <div class="col-sm mb-3 ">
+                        <label for="">Nom de la planche</label>
+                        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-sm mb-3">
+                        <label for="">Marque associé</label>
+                        {{ form_widget(form.brand, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-sm mb-3 ">
+                        <label for="">Taille</label>
+                        {{ form_widget(form.size, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-sm mb-3 ">
+                        <label for="">Volume</label>
+                        {{ form_widget(form.volume, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-sm mb-3 ">
+                        <label for="">Catégorie</label>
+                        {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-sm mb-3 ">
+                        <label for="">Niveau</label>
+                        {{ form_widget(form.level, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-sm mb-3 ">
+                        <label for="">Description</label>
+                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-sm mb-3 ">
+                        <label for="">Image</label>
+                        {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-sm my-5">
+                        <button type="submit" class="btn btn-warning">Ajouter</button>
+                    </div>
+                    {{ form_end(form) }}
                 </div>
-                <div class="col-sm mb-3">
-                    <label for="">Marque associé</label>
-                    {{ form_widget(form.brand, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="col-sm mb-3 ">
-                    <label for="">Taille</label>
-                    {{ form_widget(form.size, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="col-sm mb-3 ">
-                    <label for="">Volume</label>
-                    {{ form_widget(form.volume, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="col-sm mb-3 ">
-                    <label for="">Catégorie</label>
-                    {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="col-sm mb-3 ">
-                    <label for="">Niveau</label>
-                    {{ form_widget(form.level, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="col-sm mb-3 ">
-                    <label for="">Description</label>
-                    {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="col-sm mb-3 ">
-                    <label for="">Image</label>
-                    {{ form_widget(form.pictures, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="col-sm my-5">
-                    <button type="submit" class="btn button-style">Ajouter</button>
-                </div>
-                {{ form_end(form) }}
             </div>
         </div>
-    </div>
-    <div class="mx-auto my-5 text-center">
-        <a href="{{ path("home") }}"><button class="btn button-style col-3"> Retour sur la page d'accueil </button></a>
     </div>
 
 {% endblock %}

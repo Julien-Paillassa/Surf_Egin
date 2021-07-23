@@ -33,13 +33,13 @@ class UserController extends AbstractController
             $this->getUser()->removeFavoriteBoard($board);
             $entityManager->persist($this->getUser());
             $entityManager->flush();
-            $this->addFlash('warning', 'Produit retiré de vos favoris !');
+            $this->addFlash('warning', 'Planche retirée de vos favoris !');
             return $this->redirectToRoute('board_show', ['id' => $board->getId()]);
         } else {
             $this->getUser()->addFavoriteBoard($board);
             $entityManager->persist($this->getUser());
             $entityManager->flush();
-            $this->addFlash('success', 'Produit ajouté à vos favoris !');
+            $this->addFlash('success', 'Planche ajoutée à vos favoris !');
             return $this->redirectToRoute('board_show', ['id' => $board->getId()]);
         }
     }

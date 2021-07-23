@@ -1,44 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+<nav class="navbar navbar-expand-lg navbar-light border-bottom  d-flex justify-content-around container-fluid div-nav">
     <div class="container-fluid">
-        <a href="{{ path('home') }}"><img class="logo text-center" width="150" height="140" src="{{ asset('build/logo_navbar.png') }}" alt="logo"></a>
-        <a class="navbar-brand text-light" href="{{ path('home') }}">Surf-Egin</a>
+        <a href="{{ path('home') }}"><img class="logo text-center" width="100" height="90" src="{{ asset('build/logo_navbar.png') }}" alt="logo"></a>
+        <h1 class="ml-5">Surf-Egin</h1>
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="{{ path('board_index') }}">Planches</a>
+                    <a class="nav-link text-dark" href="{{ path('board_index') }}">Planches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="">Catégories</a>
+                    <a class="nav-link text-dark" href="">Catégories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="{{ path('spot_index') }}">Spot</a>
+                    <a class="nav-link text-dark" href="{{ path('spot_index') }}">Spot</a>
                 </li>
                 <li class="nav-item">
                     {% if app.user %}
-                        <a class="nav-link text-light" href="{{ path('user_favorite') }}">Favori</a>
+                        <a class="nav-link text-dark" href="{{ path('user_favorite') }}">Favori</a>
                     {% endif %}
                 </li>
                 {% if is_granted("ROLE_ADMIN") %}
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="{{ path('admin_index') }}">Administration</a>
+                        <a class="nav-link text-dark" href="{{ path('admin_index') }}">Administration</a>
                     </li>
                 {% endif %}
                 <li class="nav-item">
                     {% if app.user %}
-                        <a class="nav-link text-light" href="{{ path('app_logout') }}">Logout</a>
+                        <a class="nav-link text-dark" href="{{ path('app_logout') }}">Logout</a>
                     {% else %}
-                        <a class="nav-link text-light" href="{{ path('app_login') }}">Login</a>
+                        <a class="nav-link text-dark" href="{{ path('app_login') }}">Login</a>
                     {% endif %}
                 </li>
                 <li class="nav-item">
                     <div class="d-flex">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
                         {% if app.user %}
-                            <a class="nav-link" href="">Mon Compte</a>
+                            <a class="nav-link text-dark" href="">Mon Compte</a>
                         {% else %}
-                            <a class="nav-link text-light" href="{{ path('app_register') }}">Sign Up</a>
+                            <a class="nav-link text-dark" href="{{ path('app_register') }}">Sign Up</a>
                         {% endif %}
                     </div>
                 </li>

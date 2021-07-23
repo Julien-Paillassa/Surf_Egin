@@ -4,26 +4,30 @@
 {% block title %}Catalogue planches{% endblock %}
 
 {% block body %}
-    <div class="container-fluid catalogue">
+    <div class="container-fluid catalogue-board">
         <div class="row">
             <div class="col-12">
                 <div class=" text-dark col-12 text-center mx-auto py-3 ">
-                    <a href="{{ path('board_ideal') }}">Trouver votre planche idéale</a>
+                    <a href="{{ path('board_ideal') }}"><button class="btn btn-warning font-weight-bold"><i class="fas fa-search mx-2"></i>Trouver votre planche idéale</button></a>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row  justify-content-md-center">
             <div class="col-lg-8 col-12">
                 <div class="container-fluid list-catalogue">
                     <div class="grid row d-flex justify-content-center">
                         {% for board in boards %}
                             <a href="{{ path("board_show", {id: board.id}) }}" class="card col-md-4 col-lg-3 col-12">
                                 <div class="card-block">
-                                    {% for picture in board.pictures %}
-                                        {% if loop.index == 1 %}
-                                            <img class="card-img-top" src="{{ picture.url }}" alt="Card image cap">
-                                        {% endif %}
-                                    {% endfor %}
+                                    {% if board.image |length == 0 %}
+                                        {% for picture in board.pictures %}
+                                            {% if loop.index == 1 %}
+                                                <img class="card-img-top" src="{{ picture.url }}" alt="Card image cap">
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+                                        <img class="card-img-top" src="{{ board.image }}" alt="Card image cap">
+                                    {% endif %}
                                     <div class="card-body">
                                         <h5 class="card-title">{{ board.name }}</h5>
                                     </div>
@@ -34,10 +38,8 @@
                 </div>
             </div>
         </div>
-        <div class="mx-auto my-5 text-center">
-            <a href="{{ path("home") }}"><button class="btn button-style col-3"> Retour sur la page d'accueil </button></a>
+        <div class="col-5 mx-auto py-5 text-center">
+            <a href="{{ path("home") }}"><button class="btn btn-warning col-3 font-weight-bold font-italic"><i class="fas fa-arrow-circle-left mx-2"></i>Retour à l'accueil </button></a>
         </div>
     </div>
-
-
 {% endblock %}

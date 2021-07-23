@@ -3,33 +3,39 @@
 {% block title %}{{ board.name }}{% endblock %}
 
 {% block body %}
-<div class="container show-product col-12 pt-2">
+<div class="container show-board col-12 pt-2">
     <div class="row">
-        <div class="card col-6">
+        <div class="card col-6 ml-4">
             <div class="container-image">
-                <a href="{{ path("user_handle_favorite", {id: board.id}) }}"><i class="far fa-heart"></i></a>
-                {% for picture in board.pictures %}
-                    {% if loop.index == 1 %}
-                        <img class="card-img-top" src="{{ picture.url }}" alt="Card image cap">
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <div class="card-body">
-                <p class="font-weight-bold">Marque :</p>
-                <p>{{ board.brand.name }}</p>
-                <p class="font-weight-bold">Description :</p>
-                <p>{{ board.description }}</p>
-                <p class="font-weight-bold">Caractéristiques :</p>
-                <ul>
-                    <li>> {{ board.size }}</li>
-                    <li>> {{ board.volume }}</li>
-                    <li>> {{ board.category.name }}</li>
-                </ul>
+                {% if board.image |length == 0 %}
+                    {% for picture in board.pictures %}
+                        {% if loop.index == 1 %}
+                            <a href="{{ path("user_handle_favorite", {id: board.id}) }}"><i class="far fa-heart fa-5x"></i></a>
+                            <img class="card-img-top" src="{{ picture.url }}" alt="Card image cap">
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <img class="card-img-top" src="{{ board.image }}" alt="Card image cap">
+                {% endif %}
             </div>
         </div>
-        <div class="col-5">
-            <h1> {{ board.name }} </h1>
-{#            <div class="row">#}
+        <div class="col-5 row">
+            <div class="card-body">
+                <h1 class="mx-5 text-center font-weight-bold font-italic"><u> {{ board.name }} </u></h1>
+                <p class="mx-5 text-center">{{ board.size }}{{ board.dimensions }}{{ board.volume }}</p>
+                <h2 class="font-weight-bold">Marque :</h2>
+                <h3>{{ board.brand.name }}</h3>
+                <h2 class="font-weight-bold">Description :</h2>
+                <h3>{{ board.description }}</h3>
+                <h2 class="font-weight-bold">Caractéristiques :</h2>
+                <ul class="board-caracteristic">
+                    <li> {{ board.size }}</li>
+                    <li> {{ board.volume }}</li>
+                    <li> {{ board.category.name }}</li>
+                </ul>
+            </div>
+
+            {#            <div class="row">#}
 {#                {% if product.countRatings != 0 %}#}
 {#                    <div class="col-5">#}
 {#                        <i class="fas fa-star"></i><strong>{{ product.averageRatings }}</strong>#}
@@ -65,5 +71,9 @@
 {#                </div>#}
 {#            </div>#}
         </div>
+        <div class="col-5 mx-auto py-5 text-center">
+            <a href="{{ path("home") }}"><button class="btn btn-warning col-3 font-weight-bold font-italic"><i class="fas fa-arrow-circle-left mx-2"></i>Retour à l'accueil </button></a>
+        </div>
+    </div>
     </div>
 {% endblock %}

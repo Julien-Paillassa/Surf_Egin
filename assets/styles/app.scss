@@ -9,8 +9,44 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import 'admin.scss';
 @import 'navbar.scss';
 @import 'board.scss';
+@import 'login.scss';
+@import 'signUp.scss';
 
 body {
-  background-color: #6495ED;
+  //background-color: #6495ED;
+  background-color: white;
 }
 
+h1,h2,h3,h4 {
+  font-family: Stencil Std, fantasy;
+}
+
+.board-name{
+  font-family: Stencil Std, fantasy;
+  color: white;
+}
+
+a{
+  font-family: Stencil Std, fantasy;
+  text-decoration:none;
+  color: black;
+  &:hover{
+    text-decoration:none;
+  }
+}
+
+p{
+  font-family: Stencil Std, fantasy;
+}
+
+.justify-content-md-end{
+  height: 800px;
+  background-image: url("https://mondosurfvillage.com/wp-content/uploads/2018/07/Mondo-Surf-Gallery-Activities-05-1500x630.jpg");
+  background-size: cover;
+}
+
+
+
+img {
+  border-radius: 15px;
+}

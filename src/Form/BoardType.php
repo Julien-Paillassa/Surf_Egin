@@ -33,6 +33,7 @@ class BoardType extends AbstractType
                 'expanded' => false,
                 'multiple' => false
             ])
+            ->add('image', TextType::class)
 //            ->add('pictures', PictureType::class, [
 //                'data_class' => null,
 //                ])

@@ -20,6 +20,7 @@ class BoardFixtures extends Fixture implements DependentFixtureInterface
         $board->setLevel('confirmé');
         $board->setSize('5\'11');
         $board->setVolume('30L');
+        $board->setDimensions(' x 19\' 3/4" x 2\' 7/16" ');
         $manager->persist($board);
         $this->addReference('board_0', $board);
 
@@ -31,6 +32,7 @@ class BoardFixtures extends Fixture implements DependentFixtureInterface
         $board->setLevel('débutant');
         $board->setSize('9\'1');
         $board->setVolume('62L');
+        $board->setDimensions(' x 19\' 3/4" x 2\' 7/16" ');
         $manager->persist($board);
         $this->addReference('board_1', $board);
 
@@ -42,6 +44,7 @@ class BoardFixtures extends Fixture implements DependentFixtureInterface
         $board->setLevel('confirmé');
         $board->setSize('5\'6');
         $board->setVolume('31L');
+        $board->setDimensions(' x 19\' 3/4" x 2\' 7/16" ');
         $manager->persist($board);
         $this->addReference('board_2', $board);
 
@@ -53,6 +56,7 @@ class BoardFixtures extends Fixture implements DependentFixtureInterface
         $board->setLevel('intermédaire');
         $board->setSize('6\'4');
         $board->setVolume('37L');
+        $board->setDimensions(' x 19\' 3/4" x 2\' 7/16" ');
         $manager->persist($board);
         $this->addReference('board_3', $board);
 

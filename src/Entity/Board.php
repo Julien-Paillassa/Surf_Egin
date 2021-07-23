@@ -69,6 +69,16 @@ class Board
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="string", length=255,  nullable=true)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $dimensions;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
@@ -248,6 +258,30 @@ class Board
         if ($this->users->removeElement($user)) {
             $user->removeFavoriteBoard($this);
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDimensions(): ?string
+    {
+        return $this->dimensions;
+    }
+
+    public function setDimensions(?string $dimensions): self
+    {
+        $this->dimensions = $dimensions;
 
         return $this;
     }

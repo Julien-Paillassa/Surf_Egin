@@ -36,7 +36,7 @@ class IdealBoardType extends AbstractType
                     'entre 96kg et 100kg' => '43L',
                 ]
             ])
-            ->add('recherche', SubmitType::class)
+            ->add('rechercher', SubmitType::class)
         ;
     }
 }

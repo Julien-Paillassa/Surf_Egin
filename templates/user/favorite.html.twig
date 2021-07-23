@@ -3,32 +3,35 @@
 {% block title %}Profil de {{ app.user.nickName }}{% endblock %}
 
 {% block body %}
-    <h1>Paramètre du compte</h1>
-    <div class="container justify-content-center form-information">
-        <h2>Mes Produits favoris</h2>
-        <div class="row d-flex justify-content-center">
+    <div class="board-fav col-12" style="height: 60rem">
+        <div class="text-center py-4">
+            <h1 class="font-weight-bold font-italic"><u>Mes Planches favorites</u></h1>
+        </div>
+        <div class="container justify-content-center form-information">
+            <div class="row d-flex justify-content-center">
 
-            {% for favoriteBoard in app.user.favoriteBoards %}
-                <div class="col-lg-4 col-12">
-                    <div class="card" style="width: 18rem;">
-                        {% for picture in favoriteBoard.pictures %}
-                            {% if loop.index0 == 0 %}
-                                <img class="card-img-top" src="{{ picture.url }}" alt="Card image cap">
-                            {% endif %}
-                        {% endfor %}
+                {% for favoriteBoard in app.user.favoriteBoards %}
+                    <div class="col-lg-4 col-12">
+                        <div class="card" style="width: 18rem;">
+                            {% for picture in favoriteBoard.pictures %}
+                                {% if loop.index0 == 0 %}
+                                    <img class="card-img-top" src="{{ picture.url }}" alt="Card image cap">
+                                {% endif %}
+                            {% endfor %}
 
-                        <div class="card-body">
-                            <h5 class="card-title">{{ favoriteBoard.name }}</h5>
-                            <a href="{{ path('board_show', {id: favoriteBoard.id}) }}" class="color-blue" ><i class="fas fa-long-arrow-alt-right"></i>Voir la fiche</a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ favoriteBoard.name }}</h5>
+                                <a href="{{ path('board_show', {id: favoriteBoard.id}) }}" class="color-blue" ><i class="fas fa-long-arrow-alt-right"></i>Voir la fiche</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% else %}
-                <h3>Vous n'avez encore aucun produits en favoris</h3>
-            {% endfor %}
+                {% else %}
+                    <h3>Vous n'avez encore aucun produits en favoris</h3>
+                {% endfor %}
+            </div>
         </div>
-    </div>
-    <div class="mx-auto my-5 text-center">
-        <a href="{{ path('home') }}"><button class="btn button-decoration"><i class="fas fa-arrow-circle-left"></i>  Revenir à mon Compte</button></a>
+        <div class="col-5 mx-auto py-5 text-center">
+            <a href="{{ path("home") }}"><button class="btn btn-warning col-3 font-weight-bold font-italic"><i class="fas fa-arrow-circle-left mx-2"></i>Retour à l'accueil </button></a>
+        </div>
     </div>
 {% endblock %}

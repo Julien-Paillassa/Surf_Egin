@@ -23,18 +23,6 @@ class BoardController extends AbstractController
     }
 
     /**
-     * @Route("/", name="index")
-     */
-    public function index(): Response
-    {
-        $boards = $this->boardRepository->findAll();
-
-        return $this->render('board/index.html.twig', [
-            'boards' => $boards,
-        ]);
-    }
-
-    /**
      * @Route("/recherche", name="ideal")
      */
     public function searchBoard(Request $request, BoardRepository $boardRepository)
@@ -64,4 +52,18 @@ class BoardController extends AbstractController
             'board' => $board,
         ]);
     }
+
+    /**
+     * @Route("/", name="index")
+     */
+    public function index(): Response
+    {
+        $boards = $this->boardRepository->findAll();
+
+        return $this->render('board/index.html.twig', [
+            'boards' => $boards,
+        ]);
+    }
+
+
 }

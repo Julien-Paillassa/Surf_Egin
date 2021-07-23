@@ -1,9 +1,11 @@
-<ul>
-    <a href="{{ path('admin_index') }}"><li class='{{ app.request.attributes.get('_route') == 'admin_index' ? 'active' : '' }} d-flex align-items-center'><i class="fas fa-history"></i>Tableau de Bord</li></a>
-    <a href="{{ path('admin_board') }}"><li class='{{ app.request.attributes.get('_route') == 'admin_board' ? 'active' : '' }} d-flex align-items-center'><i class="fas fa-baby-carriage"></i>Planches</li></a>
-    <a href="{{ path('admin_spot') }}"><li class='{{ app.request.attributes.get('_route') == 'admin_spot' ? 'active' : '' }} d-flex align-items-center'><i class="fas fa-umbrella"></i>Spots</li></a>
-    <a href="{{ path('category_index') }}"><li class='{{ app.request.attributes.get('_route') == 'category_index' ? 'active' : '' }} d-flex align-items-center'><i class="fas fa-box-open"></i>Catégories</li></a>
-    <a href=""><li class=' d-flex align-items-center'><i class="far fa-comments"></i> Commentaires</li></a>
-
-
+<ul class="pt-5 admin-menu h-100 px-3">
+    <h3 class="text-center">Menu</h3>
+    <a href="{{ path('admin_index') }}"><li class='{{ app.request.attributes.get('_route') == 'admin_index' ? 'active' : '' }} d-flex align-items-center'><i class="fas fa-clipboard mx-3"></i>Tableau de Bord</li></a>
+    <a href="{{ path('admin_board') }}"><li class='{{ app.request.attributes.get('_route') == 'admin_board' ? 'active' : '' }} d-flex align-items-center'><i class="fas fa-snowboarding mx-3"></i>Planches</li></a>
+    <a href="{{ path('admin_spot') }}"><li class='{{ app.request.attributes.get('_route') == 'admin_spot' ? 'active' : '' }} d-flex align-items-center'><i class="fas fa-compass mx-3"></i>Spots</li></a>
+    <a href="{{ path('category_index') }}"><li class='{{ app.request.attributes.get('_route') == 'category_index' ? 'active' : '' }} d-flex align-items-center'><i class="fas fa-water mx-3"></i>Catégories</li></a>
+    <a href=""><li class=' d-flex align-items-center'><i class="far fa-comments mx-3"></i> Commentaires</li></a>
+    <div class="col-12 mx-auto py-5 text-center">
+        <a href="{{ path("home") }}"><button class="btn btn-warning col-6 font-weight-bold font-italic"><i class="fas fa-arrow-circle-left mx-2"></i>Retour à l'accueil </button></a>
+    </div>
 </ul>
